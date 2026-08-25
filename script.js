@@ -1,33 +1,21 @@
-/* ============ Icon library (line-art SVGs, reused per category) ============ */
-const ICONS = {
-  chair: `<svg viewBox="0 0 100 100" fill="none" stroke="#B08D57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M28 15 L28 45 M72 15 L72 45 M28 15 Q28 8 36 8 L64 8 Q72 8 72 15 M22 45 L78 45 L78 58 L22 58 Z M28 58 L24 90 M72 58 L76 90 M24 90 L38 90 M76 90 L62 90"/></svg>`,
-  sofa: `<svg viewBox="0 0 120 100" fill="none" stroke="#B08D57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M15 55 L15 75 Q15 82 22 82 L98 82 Q105 82 105 75 L105 55 M15 55 L15 40 Q15 32 24 32 L96 32 Q105 32 105 40 L105 55 M15 55 L105 55 M40 32 L40 55 M80 32 L80 55 M20 82 L20 92 M100 82 L100 92"/></svg>`,
-  table: `<svg viewBox="0 0 110 90" fill="none" stroke="#B08D57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 25 L100 25 L100 33 L10 33 Z M18 33 L18 78 M92 33 L92 78 M30 50 L80 50"/></svg>`,
-  storage: `<svg viewBox="0 0 100 100" fill="none" stroke="#B08D57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M15 10 L85 10 L85 90 L15 90 Z M15 40 L85 40 M15 65 L85 65 M70 25 L78 25 M70 52 L78 52 M70 77 L78 77"/></svg>`,
-  lighting: `<svg viewBox="0 0 90 110" fill="none" stroke="#B08D57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M45 8 L45 28 M20 28 L70 28 L58 58 L32 58 Z M45 58 L45 90 M30 100 L60 100 M45 90 L30 100 M45 90 L60 100"/></svg>`,
-  stool: `<svg viewBox="0 0 90 100" fill="none" stroke="#B08D57" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="45" cy="20" rx="30" ry="10"/><path d="M20 24 L14 90 M70 24 L76 90 M45 30 L45 90"/></svg>`
-};
+/* ============ Product images ============ */
+/* Photos from Unsplash (free to use under the Unsplash License — unsplash.com/license) */
+function img(id, w){ return `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w||800}&q=80`; }
 
 /* ============ Product data ============ */
 const PRODUCTS = [
-  { id:'p1', name:'Alder Lounge Chair', cat:'seating', icon:'chair', price:640, desc:'White oak frame, wool-blend cushion.', materials:[{n:'Oak',c:'#B08D57'},{n:'Walnut',c:'#5C3A28'},{n:'Ash',c:'#D8CBB3'}] },
-  { id:'p2', name:'Marrow Sofa, 3-Seat', cat:'seating', icon:'sofa', price:2180, desc:'Kiln-dried frame, feather-down fill.', materials:[{n:'Linen',c:'#D8CBB3'},{n:'Boucl\u00e9',c:'#EAE2D2'},{n:'Sage',c:'#7C8B6F'}] },
-  { id:'p3', name:'Fen Accent Stool', cat:'seating', icon:'stool', price:220, desc:'Solid ash, hand-turned legs.', materials:[{n:'Ash',c:'#D8CBB3'},{n:'Walnut',c:'#5C3A28'}] },
-  { id:'p4', name:'Harrow Dining Table', cat:'tables', icon:'table', price:1480, desc:'Black walnut top, breadboard ends.', materials:[{n:'Walnut',c:'#5C3A28'},{n:'Oak',c:'#B08D57'}] },
-  { id:'p5', name:'Kiln Side Table', cat:'tables', icon:'table', price:340, desc:'Compact oak table, mortise joints.', materials:[{n:'Oak',c:'#B08D57'},{n:'Ash',c:'#D8CBB3'}] },
-  { id:'p6', name:'Rill Console Table', cat:'tables', icon:'table', price:820, desc:'Narrow profile, hand-rubbed finish.', materials:[{n:'Walnut',c:'#5C3A28'},{n:'Oak',c:'#B08D57'}] },
-  { id:'p7', name:'Fettle Bookcase', cat:'storage', icon:'storage', price:960, desc:'Adjustable shelves, dovetailed sides.', materials:[{n:'Oak',c:'#B08D57'},{n:'Walnut',c:'#5C3A28'}] },
-  { id:'p8', name:'Coppice Sideboard', cat:'storage', icon:'storage', price:1720, desc:'Brass pulls, soft-close doors.', materials:[{n:'Walnut',c:'#5C3A28'},{n:'Ash',c:'#D8CBB3'}] },
-  { id:'p9', name:'Loam Bedside Chest', cat:'storage', icon:'storage', price:410, desc:'Three drawers, solid ash front.', materials:[{n:'Ash',c:'#D8CBB3'},{n:'Oak',c:'#B08D57'}] },
-  { id:'p10', name:'Ember Floor Lamp', cat:'lighting', icon:'lighting', price:290, desc:'Oak stem, linen shade.', materials:[{n:'Oak',c:'#B08D57'},{n:'Walnut',c:'#5C3A28'}] },
-  { id:'p11', name:'Rushlight Table Lamp', cat:'lighting', icon:'lighting', price:165, desc:'Turned walnut base.', materials:[{n:'Walnut',c:'#5C3A28'},{n:'Oak',c:'#B08D57'}] },
-  { id:'p12', name:'Grove Pendant Light', cat:'lighting', icon:'lighting', price:210, desc:'Brass fixture, oak canopy.', materials:[{n:'Brass',c:'#B08D57'},{n:'Blackened Ash',c:'#3A342C'}] },
+  { id:'p1', name:'Alder Lounge Chair', cat:'seating', img:img('photo-1615876234886-fd9a39fda97f'), price:640, desc:'White oak frame, wool-blend cushion.', materials:[{n:'Oak',c:'#B08D57'},{n:'Walnut',c:'#5C3A28'},{n:'Ash',c:'#D8CBB3'}] },
+  { id:'p2', name:'Marrow Sofa, 3-Seat', cat:'seating', img:img('photo-1756302555654-5e413da2d1b8'), price:2180, desc:'Kiln-dried frame, feather-down fill.', materials:[{n:'Linen',c:'#D8CBB3'},{n:'Boucl\u00e9',c:'#EAE2D2'},{n:'Sage',c:'#7C8B6F'}] },
+  { id:'p3', name:'Fen Accent Stool', cat:'seating', img:img('photo-1634798245965-03669c757183'), price:220, desc:'Solid ash, hand-turned legs.', materials:[{n:'Ash',c:'#D8CBB3'},{n:'Walnut',c:'#5C3A28'}] },
+  { id:'p4', name:'Harrow Dining Table', cat:'tables', img:img('photo-1764076327046-fe35f955cba1'), price:1480, desc:'Black walnut top, breadboard ends.', materials:[{n:'Walnut',c:'#5C3A28'},{n:'Oak',c:'#B08D57'}] },
+  { id:'p5', name:'Kiln Side Table', cat:'tables', img:img('photo-1568842377941-63a9550044bf'), price:340, desc:'Compact oak table, mortise joints.', materials:[{n:'Oak',c:'#B08D57'},{n:'Ash',c:'#D8CBB3'}] },
+  { id:'p6', name:'Rill Console Table', cat:'tables', img:img('photo-1721385675060-9982ec72385e'), price:820, desc:'Narrow profile, hand-rubbed finish.', materials:[{n:'Walnut',c:'#5C3A28'},{n:'Oak',c:'#B08D57'}] },
+  { id:'p7', name:'Fettle Bookcase', cat:'storage', img:img('photo-1620388640952-35a1d22d158d'), price:960, desc:'Adjustable shelves, dovetailed sides.', materials:[{n:'Oak',c:'#B08D57'},{n:'Walnut',c:'#5C3A28'}] },
+  { id:'p8', name:'Coppice Sideboard', cat:'storage', img:img('photo-1721385675060-9982ec72385e'), price:1720, desc:'Brass pulls, soft-close doors.', materials:[{n:'Walnut',c:'#5C3A28'},{n:'Ash',c:'#D8CBB3'}] },
+  { id:'p9', name:'Loam Bedside Chest', cat:'storage', img:img('photo-1544691560-fc2053d97726'), price:410, desc:'Three drawers, solid ash front.', materials:[{n:'Ash',c:'#D8CBB3'},{n:'Oak',c:'#B08D57'}] },
+  { id:'p10', name:'Ember Floor Lamp', cat:'lighting', img:img('photo-1710082777338-dcb6189ae64f'), price:290, desc:'Oak stem, linen shade.', materials:[{n:'Oak',c:'#B08D57'},{n:'Walnut',c:'#5C3A28'}] },
+  { id:'p11', name:'Rushlight Table Lamp', cat:'lighting', img:img('photo-1592195986398-5484c0890b74'), price:165, desc:'Turned walnut base.', materials:[{n:'Walnut',c:'#5C3A28'},{n:'Oak',c:'#B08D57'}] },
+  { id:'p12', name:'Grove Pendant Light', cat:'lighting', img:img('photo-1625405062688-3cfb0b769364'), price:210, desc:'Brass fixture, oak canopy.', materials:[{n:'Brass',c:'#B08D57'},{n:'Blackened Ash',c:'#3A342C'}] },
 ];
 
 const QUOTES = [
@@ -47,7 +35,7 @@ function renderProducts(){
   const items = PRODUCTS.filter(p => activeFilter === 'all' || p.cat === activeFilter);
   grid.innerHTML = items.map(p => `
     <div class="card" data-id="${p.id}">
-      <div class="card__art">${ICONS[p.icon]}</div>
+      <div class="card__art"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
       <div class="card__body">
         <span class="card__cat">${p.cat}</span>
         <h3 class="card__name">${p.name}</h3>
@@ -105,7 +93,7 @@ function addToCart(id){
   if (existing){
     existing.qty += 1;
   } else {
-    cart.push({ key, id, name: product.name, price: product.price, icon: product.icon, material, qty: 1 });
+    cart.push({ key, id, name: product.name, price: product.price, img: product.img, material, qty: 1 });
   }
   saveCart();
   renderCart();
@@ -141,7 +129,7 @@ function renderCart(){
   } else {
     itemsEl.innerHTML = cart.map(item => `
       <div class="cart-item" data-key="${item.key}">
-        <div class="cart-item__art">${ICONS[item.icon]}</div>
+        <div class="cart-item__art"><img src="${item.img}" alt="${item.name}"></div>
         <div class="cart-item__info">
           <span class="cart-item__name">${item.name}</span>
           <span class="cart-item__meta">${item.material}</span>
