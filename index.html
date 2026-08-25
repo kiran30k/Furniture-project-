@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fettle & Oak — Furniture built to be lived-in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo">Fettle <span>&amp;</span> Oak</a>
+    <nav class="nav__links">
+      <a href="#collection">Collection</a>
+      <a href="#craft">Craft</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Visit</a>
+    </nav>
+    <button class="nav__cart" id="cartToggle" aria-label="Open cart">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l1.6 10.6a2 2 0 002 1.7h8.3a2 2 0 002-1.7L20 8H6.2"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg>
+      <span class="nav__cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero__text">
+    <p class="eyebrow">Small-batch furniture, since 2014</p>
+    <h1>Furniture built<br>to be <em>lived-in</em>,<br>not looked at.</h1>
+    <p class="hero__sub">Solid wood frames, natural fills, joinery you can see and trust. Every piece is made to order in our workshop and finished by hand.</p>
+    <div class="hero__cta">
+      <a href="#collection" class="btn btn--primary">Browse the collection</a>
+      <a href="#craft" class="btn btn--ghost">How it's made</a>
+    </div>
+    <ul class="hero__stats">
+      <li><strong>12</strong><span>wood species on hand</span></li>
+      <li><strong>30-yr</strong><span>frame warranty</span></li>
+      <li><strong>6 wks</strong><span>average build time</span></li>
+    </ul>
+  </div>
+  <div class="hero__art" aria-hidden="true">
+    <svg viewBox="0 0 420 420" class="chair-draw">
+      <path class="draw-path" d="M120 60 L120 180 M300 60 L300 180 M120 60 Q120 30 150 30 L270 30 Q300 30 300 60 M100 180 L320 180 L320 210 L100 210 Z M120 210 L110 380 M300 210 L310 380 M110 380 L150 380 M310 380 L270 380 M130 260 L290 260" fill="none" stroke="var(--brass)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== MATERIAL TICKER ===== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>White Oak</span><span>&middot;</span><span>Black Walnut</span><span>&middot;</span><span>Ash</span><span>&middot;</span><span>Boucl&eacute;</span><span>&middot;</span><span>Belgian Linen</span><span>&middot;</span><span>Brass</span><span>&middot;</span>
+    <span>White Oak</span><span>&middot;</span><span>Black Walnut</span><span>&middot;</span><span>Ash</span><span>&middot;</span><span>Boucl&eacute;</span><span>&middot;</span><span>Belgian Linen</span><span>&middot;</span><span>Brass</span><span>&middot;</span>
+  </div>
+</div>
+
+<!-- ===== JOINERY DIVIDER ===== -->
+<svg class="joint-divider" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,20 L60,20 L60,0 L120,0 L120,40 L180,40 L180,0 L240,0 L240,40 L300,40 L300,0 L360,0 L360,40 L420,40 L420,0 L480,0 L480,40 L540,40 L540,0 L600,0 L600,40 L660,40 L660,0 L720,0 L720,40 L780,40 L780,0 L840,0 L840,40 L900,40 L900,0 L960,0 L960,40 L1020,40 L1020,0 L1080,0 L1080,40 L1140,40 L1140,0 L1200,0 L1200,20" fill="none" stroke="var(--brass)" stroke-width="1.5"/>
+</svg>
+
+<!-- ===== COLLECTION ===== -->
+<section class="collection" id="collection">
+  <div class="section-head">
+    <h2>The Collection</h2>
+    <p>Every piece, one workshop. Filter by room.</p>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter is-active" data-filter="all">All</button>
+    <button class="filter" data-filter="seating">Seating</button>
+    <button class="filter" data-filter="tables">Tables</button>
+    <button class="filter" data-filter="storage">Storage</button>
+    <button class="filter" data-filter="lighting">Lighting</button>
+  </div>
+
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<svg class="joint-divider" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,20 L60,20 L60,0 L120,0 L120,40 L180,40 L180,0 L240,0 L240,40 L300,40 L300,0 L360,0 L360,40 L420,40 L420,0 L480,0 L480,40 L540,40 L540,0 L600,0 L600,40 L660,40 L660,0 L720,0 L720,40 L780,40 L780,0 L840,0 L840,40 L900,40 L900,0 L960,0 L960,40 L1020,40 L1020,0 L1080,0 L1080,40 L1140,40 L1140,0 L1200,0 L1200,20" fill="none" stroke="var(--brass)" stroke-width="1.5"/>
+</svg>
+
+<!-- ===== CRAFT ===== -->
+<section class="craft" id="craft">
+  <div class="craft__inner">
+    <div class="craft__text">
+      <p class="eyebrow">The workshop</p>
+      <h2>No particleboard. No staples. No shortcuts.</h2>
+      <p>Every frame is joined with mortise-and-tenon or dovetail joinery — the same methods cabinetmakers have used for three hundred years, because nothing built since works better. We mill our own wood, cut every joint by hand, and stand behind the frame for thirty years.</p>
+      <div class="craft__points">
+        <div><h3>01</h3><p>Wood is kiln-dried on site, then rested for 14 days before milling.</p></div>
+        <div><h3>02</h3><p>Joints are cut and fitted by hand — no fasteners, no adhesive shortcuts.</p></div>
+        <div><h3>03</h3><p>Each piece is signed and dated by the maker before it ships.</p></div>
+      </div>
+    </div>
+    <div class="craft__art" aria-hidden="true">
+      <svg viewBox="0 0 300 300">
+        <g fill="none" stroke="var(--oat)" stroke-width="3" stroke-linecap="round">
+          <path d="M40 260 L40 120 L100 90 L100 260"/>
+          <path d="M40 150 L100 150"/>
+          <path d="M150 260 L150 60 L260 60 L260 260"/>
+          <path d="M150 160 L260 160"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="section-head section-head--light">
+    <h2>From people who sit in it daily</h2>
+  </div>
+  <div class="quote-box">
+    <p class="quote-text" id="quoteText">"Five years in and the joints haven't loosened once. It's the first sofa I've owned that got more comfortable, not less."</p>
+    <p class="quote-attr" id="quoteAttr">— Maren H., Portland</p>
+    <div class="quote-dots" id="quoteDots"></div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter">
+  <div class="newsletter__inner">
+    <div>
+      <h2>Get first look at new pieces</h2>
+      <p>One email a month. New drops, workshop notes, no noise.</p>
+    </div>
+    <form id="newsletterForm" class="newsletter__form">
+      <input type="email" id="newsletterEmail" placeholder="you@email.com" required>
+      <button type="submit" class="btn btn--primary">Sign up</button>
+    </form>
+    <p class="form-msg" id="newsletterMsg"></p>
+  </div>
+</section>
+
+<!-- ===== CONTACT / FOOTER ===== -->
+<footer class="footer" id="contact">
+  <div class="footer__inner">
+    <div class="footer__col">
+      <p class="nav__logo nav__logo--footer">Fettle <span>&amp;</span> Oak</p>
+      <p>Workshop &amp; showroom<br>412 Millwright Lane<br>Open Tue–Sat, 10–6</p>
+    </div>
+    <div class="footer__col">
+      <h4>Shop</h4>
+      <a href="#collection">Seating</a>
+      <a href="#collection">Tables</a>
+      <a href="#collection">Storage</a>
+      <a href="#collection">Lighting</a>
+    </div>
+    <div class="footer__col">
+      <h4>Studio</h4>
+      <a href="#craft">Our craft</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Visit the showroom</a>
+    </div>
+    <div class="footer__col">
+      <h4>Say hello</h4>
+      <a href="mailto:hello@fettleandoak.example">hello@fettleandoak.example</a>
+      <a href="tel:+15550123456">(555) 012-3456</a>
+    </div>
+  </div>
+  <p class="footer__bottom">&copy; 2026 Fettle &amp; Oak. All pieces made to order.</p>
+</footer>
+
+<!-- ===== CART DRAWER ===== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-drawer__head">
+    <h3>Your cart</h3>
+    <button id="cartClose" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-drawer__items" id="cartItems"></div>
+  <div class="cart-drawer__footer">
+    <div class="cart-drawer__total">
+      <span>Total</span>
+      <strong id="cartTotal">$0</strong>
+    </div>
+    <button class="btn btn--primary btn--full" id="checkoutBtn">Checkout</button>
+  </div>
+</aside>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
